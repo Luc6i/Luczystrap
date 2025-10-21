@@ -1,0 +1,39 @@
+{
+  "profiles": {
+    "Luczystrap (Launch)": {
+      "commandName": "Project"
+    },
+    "Luczystrap (Quiet Launch)": {
+      "commandName": "Project",
+      "commandLineArgs": "-quiet"
+    },
+    "Luczystrap (Uninstall)": {
+      "commandName": "Project",
+      "commandLineArgs": "-uninstall"
+    },
+    "Luczystrap (Quiet Uninstall)": {
+      "commandName": "Project",
+      "commandLineArgs": "-uninstall -quiet"
+    },
+    "Luczystrap (Menu)": {
+      "commandName": "Project",
+      "commandLineArgs": "-menu"
+    },
+    "Luczystrap (Deeplink)": {
+      "commandName": "Project",
+      "commandLineArgs": "-player \"roblox://experiences/start?placeId=13700835620\""
+    },
+    "Luczystrap (Studio Launch)": {
+      "commandName": "Project",
+      "commandLineArgs": "-studio"
+    },
+    "Luczystrap (Watcher)": {
+      "commandName": "Project",
+      "commandLineArgs": "-watcher"
+    },
+    "Luczystrap (Bloxshade)": {
+      "commandName": "Project",
+      "commandLineArgs": "-bloxshade"
+    }
+  }
+}
