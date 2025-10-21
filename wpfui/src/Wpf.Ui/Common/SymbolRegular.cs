@@ -3858,8 +3858,6 @@ public enum SymbolRegular
     Filmstrip24 = 0xEEFC,
     FoodCarrot20 = 0xEEFD,
     FoodCarrot24 = 0xEEFE,
-    FoodFish20 = 0xEEFF,
-    FoodFish24 = 0xEF00,
     HandOpenHeart20 = 0xEF01,
     HandOpenHeart32 = 0xEF02,
     HandWave16 = 0xEF03,
