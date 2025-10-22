@@ -50,7 +50,7 @@
             <ui:Anchor Margin="0,0,8,8" Content="{x:Static resources:Strings.Menu_About_GithubRepository}" Icon="Code24" NavigateUri="https://github.com/Luczystrap/Luczystrap" />
             <ui:Anchor Margin="0,0,8,8" Content="{x:Static resources:Strings.Menu_About_HelpInformation}" Icon="BookQuestionMark24" NavigateUri="https://bloxstraplabs.com/wiki/" />
             <ui:Anchor Margin="0,0,8,8" Content="{x:Static resources:Strings.Menu_About_ReportIssue}" Icon="BookExclamationMark24" NavigateUri="https://github.com/Luczystrap/Luczystrap/issues" />
-            <ui:Anchor Margin="0,0,0,8" Content="{x:Static resources:Strings.Menu_About_DiscordServer}" Icon="Chat48" NavigateUri="https://discord.gg/ZhzvkxPA" />
+            <ui:Anchor Margin="0,0,0,8" Content="{x:Static resources:Strings.Menu_About_DiscordServer}" Icon="Chat48" NavigateUri="https://discord.gg/C2rkCMkc9c" />
         </WrapPanel>
 
         <StackPanel Visibility="{Binding BuildInformationVisibility, Mode=OneTime}">

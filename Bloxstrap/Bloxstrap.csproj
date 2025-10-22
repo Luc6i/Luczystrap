@@ -7,14 +7,21 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
     <ApplicationIcon>Bloxstrap.ico</ApplicationIcon>
-    <Version>1.0</Version>
-    <FileVersion>1.0</FileVersion>
+    <Version>1.1</Version>
+    <FileVersion>1.1</FileVersion>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 	<AssemblyName>Luczystrap</AssemblyName>
     <Product>$(AssemblyName)</Product>
     <RootNamespace>Bloxstrap</RootNamespace>
+  
+    <!-- Single File Configuration -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>false</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>
@@ -102,7 +109,7 @@
     <!-- Roslyn only allows source generators to see msbuild properties, to lift msbuild items into semicolon-delimited properties. -->
     <PropertyGroup>
       <CsWin32InputMetadataPaths>@(ProjectionMetadataWinmd->'%(FullPath)','|')</CsWin32InputMetadataPaths>
-      <CsWin32InputDocPaths>@(ProjectionDocs->'%(FullPath)','|')</CsWin32InputDocPaths>
+      <CsWin32InputDocPaths>@(ProjectionDocs->'%(FullPath','|')</CsWin32InputDocPaths>
     </PropertyGroup>
   </Target>
 

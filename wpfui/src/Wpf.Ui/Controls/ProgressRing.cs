@@ -100,7 +100,7 @@ public class ProgressRing : RangeBase
     public Brush CoverRingStroke
     {
         get => (Brush)GetValue(CoverRingStrokeProperty);
-        internal set => SetValue(CoverRingStrokeProperty, value);
+        set => SetValue(CoverRingStrokeProperty, value);
     }
 
     /// <summary>
@@ -109,7 +109,7 @@ public class ProgressRing : RangeBase
     public System.Windows.Visibility CoverRingVisibility
     {
         get => (System.Windows.Visibility)GetValue(CoverRingVisibilityProperty);
-        internal set => SetValue(CoverRingVisibilityProperty, value);
+        set => SetValue(CoverRingVisibilityProperty, value);
     }
 
     public ProgressRing()

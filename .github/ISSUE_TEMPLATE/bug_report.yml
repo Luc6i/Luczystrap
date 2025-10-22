@@ -1,0 +1,23 @@
+name: Bug Report
+description: Report a bug or issue with Luczystrap
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for reporting a bug Please provide as much detail as possible.
+  - type: input
+    id: version
+    attributes:
+      label: Luczystrap Version
+      description: What version of Luczystrap are you using?
+      placeholder: e.g., v1.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the Bug
+      description: A clear and concise description of what the bug is.
+      placeholder: e.g., When I apply a custom theme, Roblox crashes on launch.
+    validations:
+      required: true
