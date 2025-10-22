@@ -1797,4 +1797,10 @@ Defaulting to {1}.</value>
   <data name="Menu.FastFlags.FRMQualityOverride.Description" xml:space="preserve">
     <value>Choose the FRM quality that Roblox should use.</value>
   </data>
+  <data name="AutoUpdater_UpdateAvailable" xml:space="preserve">
+    <value>A new version ({0}) is available! Would you like to update now?</value>
+  </data>
+  <data name="AutoUpdater_UpdateFailed" xml:space="preserve">
+    <value>Failed to install update: {0}</value>
+  </data>
 </root>

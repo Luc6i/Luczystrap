@@ -329,6 +329,23 @@ namespace Bloxstrap
                 if (!LaunchSettings.BypassUpdateCheck)
                     Installer.HandleUpgrade();
 
+                // Check for updates from GitHub
+                if (!LaunchSettings.BypassUpdateCheck && Settings.Prop.CheckForUpdates)
+                {
+                    Task.Run(async () =>
+                    {
+                        try
+                        {
+                            await AutoUpdater.CheckForUpdates();
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.WriteLine(LOG_IDENT, "Update check failed");
+                            Logger.WriteException(LOG_IDENT, ex);
+                        }
+                    });
+                }
+
                 Task.Run(App.RemoteData.LoadData); // ok
 
                 WindowsRegistry.RegisterApis(); // we want to register those early on
