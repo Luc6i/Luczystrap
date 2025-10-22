@@ -246,6 +246,44 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+        public ICommand RunBenchmarkCommand => new RelayCommand(RunBenchmark);
+
+        private async void RunBenchmark()
+        {
+            // Run benchmark on a background thread to avoid blocking UI
+            await Task.Run(() =>
+            {
+                System.Threading.Thread.Sleep(500); // Small delay to show the process
+            });
+
+            var (score, tier, preset) = Bloxstrap.Utility.PerformanceBenchmark.GetDetailedBenchmark();
+
+            var presetName = preset switch
+            {
+                LuciPreset.Potato => "Potato (Low-End)",
+                LuciPreset.Low => "Low (Mid-End)",
+                LuciPreset.Ultra => "Ultra (High-End)",
+                _ => "Unknown"
+            };
+
+            var message = $"Benchmark Complete!\n\n" +
+                         $"Performance Score: {score}/100\n" +
+                         $"System Tier: {tier}\n" +
+                         $"Recommended Preset: {presetName}\n\n" +
+                         $"Would you like to apply the recommended preset?";
+
+            var result = Frontend.ShowMessageBox(
+                message,
+                MessageBoxImage.Information,
+                MessageBoxButton.YesNo
+            );
+
+            if (result == MessageBoxResult.Yes)
+            {
+                ApplyLuciPreset(preset);
+            }
+        }
+
         public bool ResetConfiguration
         {
             get => _preResetFlags is not null;

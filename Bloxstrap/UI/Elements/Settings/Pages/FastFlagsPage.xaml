@@ -160,11 +160,28 @@
         
         <ui:Card Margin="0,8,0,0" Padding="12">
             <StackPanel>
-                <TextBlock FontSize="14" FontWeight="Medium" Text="Quick Apply Presets" Margin="0,0,0,8" />
-                <TextBlock FontSize="12" TextWrapping="Wrap" 
-                           Foreground="{DynamicResource TextFillColorTertiaryBrush}" 
-                           Margin="0,0,0,12"
-                           Text="Apply pre-configured FastFlag combinations optimized for different performance levels. These presets will overwrite existing FastFlags." />
+                <Grid Margin="0,0,0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" FontWeight="Medium" Text="Quick Apply Presets" Margin="0,0,0,4" />
+                        <TextBlock FontSize="12" TextWrapping="Wrap" 
+                                   Foreground="{DynamicResource TextFillColorTertiaryBrush}" 
+                                   Text="Apply pre-configured FastFlag combinations optimized for different performance levels. These presets will overwrite existing FastFlags." />
+                    </StackPanel>
+                    
+                    <ui:Button Grid.Column="1" 
+                               Icon="TopSpeed20" 
+                               Content="Auto Detect" 
+                               Command="{Binding RunBenchmarkCommand}"
+                               Appearance="Primary"
+                               VerticalAlignment="Center"
+                               Margin="8,0,0,0"
+                               ToolTip="Run a quick benchmark to automatically detect the best preset for your PC" />
+                </Grid>
                 
                 <UniformGrid Columns="3" HorizontalAlignment="Stretch">
                     <ui:CardAction Margin="0,0,4,0" Icon="ChevronCircleDown20" Command="{Binding ApplyLuciPresetCommand}" CommandParameter="{x:Static presets:LuciPreset.Potato}">
