@@ -54,5 +54,9 @@ namespace Bloxstrap.Models.Persistable
         public bool DisableGpuTelemetry { get; set; } = false;
         public bool OptimizeNetworkTraffic { get; set; } = false;
         public bool SetCloudflareDNS { get; set; } = false;
+
+        // Account management
+        public ObservableCollection<RobloxAccount> RobloxAccounts { get; set; } = new();
+        public long? ActiveAccountId { get; set; } = null;
     }
 }

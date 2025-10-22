@@ -11,6 +11,7 @@
 #warning "Automatic updater debugging is enabled"
 #endif
 
+using Bloxstrap.Managers;
 using Bloxstrap.AppData;
 using Bloxstrap.Models.APIs.Roblox;
 using Bloxstrap.RobloxInterfaces;
@@ -640,6 +641,96 @@ namespace Bloxstrap
                 // this needs to be done before roblox launches
                 if (App.Settings.Prop.MultiInstanceLaunching)
                     LaunchMultiInstanceWatcher();
+
+                // ✅ NEW APPROACH: Inject cookie by clearing Roblox storage and forcing re-auth
+                var activeAccount = AccountManager.GetActiveAccount();
+                if (activeAccount is not null)
+                {
+                    try
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Preparing authentication for: {activeAccount.DisplayName} (@{activeAccount.Username})");
+                        
+                        // Kill any running Roblox processes first
+                        var robloxProcesses = System.Diagnostics.Process.GetProcessesByName("RobloxPlayerBeta")
+                            .Concat(System.Diagnostics.Process.GetProcessesByName("eurotrucks2"))
+                            .ToArray();
+                        
+                        foreach (var proc in robloxProcesses)
+                        {
+                            try { proc.Kill(); proc.WaitForExit(2000); } catch { }
+                        }
+                        
+                        if (robloxProcesses.Any())
+                            System.Threading.Thread.Sleep(1000);
+                        
+                        // Get the decrypted cookie
+                        string cookieValue = AccountManager.DecryptCookie(activeAccount.SecurityCookie);
+                        
+                        // Write to registry for Roblox to read
+                        string robloxDir = Path.Combine(Paths.LocalAppData, "Roblox");
+                        Directory.CreateDirectory(robloxDir);
+                        
+                        // Clear all browser data
+                        string[] pathsToDelete = {
+                            Path.Combine(robloxDir, "Cookies"),
+                            Path.Combine(robloxDir, "Cookies-journal"),
+                            Path.Combine(robloxDir, "Local Storage"),
+                            Path.Combine(robloxDir, "Session Storage"),
+                        };
+                        
+                        foreach (var path in pathsToDelete)
+                        {
+                            try
+                            {
+                                if (File.Exists(path)) File.Delete(path);
+                                if (Directory.Exists(path)) Directory.Delete(path, true);
+                            }
+                            catch { }
+                        }
+                        
+                        System.Threading.Thread.Sleep(500);
+                        
+                        // CRITICAL: Inject via .ROBLOSECURITY in launch command
+                        // Check if the launch args already contain authentication
+                        if (!_launchCommandLine.Contains("launchtime:") && _launchCommandLine.StartsWith("roblox-player:"))
+                        {
+                            // Extract the base64 encoded data from the launch URL
+                            var match = System.Text.RegularExpressions.Regex.Match(
+                                _launchCommandLine, 
+                                @"roblox-player:1\+launchmode:play\+gameinfo:([a-zA-Z0-9+/=]+)"
+                            );
+                            
+                            if (match.Success)
+                            {
+                                // Decode, inject cookie, re-encode
+                                string base64Data = match.Groups[1].Value;
+                                byte[] decodedBytes = Convert.FromBase64String(base64Data);
+                                string decodedData = System.Text.Encoding.UTF8.GetString(decodedBytes);
+                                
+                                // Add browserTrackerId with the cookie
+                                decodedData = decodedData.Replace(
+                                    "\"browserTrackerId\":", 
+                                    $"\"rbxAuthCookie\":\"{cookieValue}\",\"browserTrackerId\":"
+                                );
+                                
+                                // Re-encode
+                                byte[] newBytes = System.Text.Encoding.UTF8.GetBytes(decodedData);
+                                string newBase64 = Convert.ToBase64String(newBytes);
+                                
+                                _launchCommandLine = _launchCommandLine.Replace(base64Data, newBase64);
+                                
+                                App.Logger.WriteLine(LOG_IDENT, "✅ Injected cookie into launch URL");
+                            }
+                        }
+                        
+                        App.Logger.WriteLine(LOG_IDENT, $"Authentication prepared for: {activeAccount.DisplayName}");
+                    }
+                    catch (Exception ex)
+                    {
+                        App.Logger.WriteLine(LOG_IDENT, $"Failed to inject authentication: {ex}");
+                        App.Logger.WriteException(LOG_IDENT, ex);
+                    }
+                }
 
                 if (App.Settings.Prop.ForceRobloxLanguage)
                 {
