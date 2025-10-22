@@ -21,12 +21,15 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private readonly ObservableCollection<FastFlag> _fastFlagList = new();
 
-        private bool _showPresets = false;
+        private bool _showPresets = true; // Changed from false to true
         private string _searchFilter = "";
 
         public FastFlagEditorPage()
         {
             InitializeComponent();
+            
+            // Set the toggle to checked by default
+            TogglePresetsButton.IsChecked = true;
         }
 
         private void ReloadList()

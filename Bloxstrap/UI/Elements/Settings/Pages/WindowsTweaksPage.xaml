@@ -1,0 +1,86 @@
+<ui:UiPage x:Class="Bloxstrap.UI.Elements.Settings.Pages.WindowsTweaksPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
+      xmlns:resources="clr-namespace:Bloxstrap.Resources"
+      xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels.Settings"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="800"
+      d:DataContext="{d:DesignInstance Type=models:WindowsTweaksViewModel}"
+      Title="WindowsTweaksPage"
+      Scrollable="True">
+    <StackPanel Margin="0,0,14,14">
+        <TextBlock Text="Configure Windows system tweaks and optimizations. These settings may require administrator privileges to apply." FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" Margin="0,0,0,8" />
+
+        <ui:InfoBar Margin="0,0,0,16" Padding="8" Title="Administrator Required" Message="Most of these tweaks require administrator privileges. You may be prompted for elevation when applying changes." Severity="Warning" IsOpen="True" IsClosable="False" />
+
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="True">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="Performance Tweaks" />
+                        <TextBlock FontSize="12" Text="Windows performance optimization settings." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+            <StackPanel>
+                <controls:OptionControl 
+                    Header="Force Roblox high priority"
+                    Description="Sets RobloxPlayerBeta.exe to high priority for better performance.">
+                    <ui:ToggleSwitch IsChecked="{Binding ForceHighPriority, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="Enable Ultimate Performance power plan"
+                    Description="Activates Windows Ultimate Performance power plan for maximum performance.">
+                    <ui:ToggleSwitch IsChecked="{Binding SetUltimatePerformance, Mode=TwoWay}" />
+                </controls:OptionControl>
+            </StackPanel>
+        </ui:CardExpander>
+
+        <ui:CardExpander Margin="0,8,0,0" IsExpanded="False">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock FontSize="14" Text="System Tweaks" />
+                        <TextBlock FontSize="12" Text="System configuration and optimization options." Foreground="{DynamicResource TextFillColorTertiaryBrush}" />
+                    </StackPanel>
+                </Grid>
+            </ui:CardExpander.Header>
+            <StackPanel>
+                <controls:OptionControl 
+                    Header="Disable CPU core parking"
+                    Description="Prevents Windows from parking CPU cores to improve responsiveness.">
+                    <ui:ToggleSwitch IsChecked="{Binding DisableCoreParking, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="Disable GPU telemetry"
+                    Description="Disables telemetry for NVIDIA and AMD graphics cards.">
+                    <ui:ToggleSwitch IsChecked="{Binding DisableGpuTelemetry, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="Optimize network traffic"
+                    Description="Configures QoS packet scheduler and disables network power management.">
+                    <ui:ToggleSwitch IsChecked="{Binding OptimizeNetworkTraffic, Mode=TwoWay}" />
+                </controls:OptionControl>
+
+                <controls:OptionControl 
+                    Header="Set Cloudflare DNS (1.1.1.1)"
+                    Description="Changes DNS to Cloudflare for faster resolution and to bypass regional blocks.">
+                    <ui:ToggleSwitch IsChecked="{Binding SetCloudflareDNS, Mode=TwoWay}" />
+                </controls:OptionControl>
+            </StackPanel>
+        </ui:CardExpander>
+    </StackPanel>
+</ui:UiPage>

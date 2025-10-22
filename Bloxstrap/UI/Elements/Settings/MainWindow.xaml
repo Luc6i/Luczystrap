@@ -61,6 +61,7 @@
                     <ui:NavigationItem x:Name="gbs" Content="{x:Static resources:Strings.Common_GlobalSettings}" PageType="{x:Type pages:GBSEditorPage}" Icon="Settings20" Tag="gbseditor"/>
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_Appearance_Title}" PageType="{x:Type pages:AppearancePage}" Icon="PaintBrush24" Tag="appearance" />
                     <ui:NavigationItem Content="{x:Static resources:Strings.Common_Shortcuts}" PageType="{x:Type pages:ShortcutsPage}" Icon="Apps28" Tag="shortcuts" />
+                    <ui:NavigationItem Content="Windows Tweaks" PageType="{x:Type pages:WindowsTweaksPage}" Icon="Desktop20" Tag="windowstweaks" />
 
                     <ui:NavigationItem Content="{x:Static resources:Strings.Menu_FastFlagEditor_Title}" PageType="{x:Type pages:FastFlagEditorPage}" Tag="fastflageditor" Visibility="Collapsed" />
                 </ui:NavigationFluent.Items>

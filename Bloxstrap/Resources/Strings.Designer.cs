@@ -19,7 +19,7 @@ namespace Bloxstrap.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -3801,6 +3801,24 @@ namespace Bloxstrap.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Removes Roblox’s default grass textures. Note: this setting does not affect custom grass textures used by individual games..
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RemoveGrass_Description {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RemoveGrass.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disable Grass.
+        /// </summary>
+        public static string Menu_FastFlags_Presets_RemoveGrass_Title {
+            get {
+                return ResourceManager.GetString("Menu.FastFlags.Presets.RemoveGrass.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rendering mode.
         /// </summary>
         public static string Menu_FastFlags_Presets_RenderingMode_Title {
@@ -3851,69 +3869,6 @@ namespace Bloxstrap.Resources {
         public static string Menu_FastFlagsDisabled_Header {
             get {
                 return ResourceManager.GetString("Menu.FastFlagsDisabled.Header", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to It&apos;s anonymous and nothing evil, promise. For insight on what Luczystrap collects and why, see Luczystrap&apos;s [privacy policy]({0})..
-        /// </summary>
-        public static string Menu_Luczystrap_Analytics_Description {
-            get {
-                return ResourceManager.GetString("Menu.Luczystrap.Analytics.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enable sending of analytics to Luczystrap.
-        /// </summary>
-        public static string Menu_Luczystrap_Analytics_Title {
-            get {
-                return ResourceManager.GetString("Menu.Luczystrap.Analytics.Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure options related to Luczystrap&apos;s behaviour itself..
-        /// </summary>
-        public static string Menu_Luczystrap_Description {
-            get {
-                return ResourceManager.GetString("Menu.Luczystrap.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gather information that can be uploaded online to troubleshoot a problem you&apos;re having..
-        /// </summary>
-        public static string Menu_Luczystrap_ExportData_Description {
-            get {
-                return ResourceManager.GetString("Menu.Luczystrap.ExportData.Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Luczystrap configuration.
-        /// </summary>
-        public static string Menu_Luczystrap_ExportData_ExportConfig {
-            get {
-                return ResourceManager.GetString("Menu.Luczystrap.ExportData.ExportConfig", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to All Luczystrap logs.
-        /// </summary>
-        public static string Menu_Luczystrap_ExportData_ExportLogs {
-            get {
-                return ResourceManager.GetString("Menu.Luczystrap.ExportData.ExportLogs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Export diagnostic data.
-        /// </summary>
-        public static string Menu_Luczystrap_ExportData_Title {
-            get {
-                return ResourceManager.GetString("Menu.Luczystrap.ExportData.Title", resourceCulture);
             }
         }
         
@@ -4388,6 +4343,69 @@ namespace Bloxstrap.Resources {
         public static string Menu_Load {
             get {
                 return ResourceManager.GetString("Menu.Load", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It&apos;s anonymous and nothing evil, promise. For insight on what Luczystrap collects and why, see Luczystrap&apos;s [privacy policy]({0})..
+        /// </summary>
+        public static string Menu_Luczystrap_Analytics_Description {
+            get {
+                return ResourceManager.GetString("Menu.Luczystrap.Analytics.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable sending of analytics to Luczystrap.
+        /// </summary>
+        public static string Menu_Luczystrap_Analytics_Title {
+            get {
+                return ResourceManager.GetString("Menu.Luczystrap.Analytics.Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configure options related to Luczystrap&apos;s behaviour itself..
+        /// </summary>
+        public static string Menu_Luczystrap_Description {
+            get {
+                return ResourceManager.GetString("Menu.Luczystrap.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gather information that can be uploaded online to troubleshoot a problem you&apos;re having..
+        /// </summary>
+        public static string Menu_Luczystrap_ExportData_Description {
+            get {
+                return ResourceManager.GetString("Menu.Luczystrap.ExportData.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Luczystrap configuration.
+        /// </summary>
+        public static string Menu_Luczystrap_ExportData_ExportConfig {
+            get {
+                return ResourceManager.GetString("Menu.Luczystrap.ExportData.ExportConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All Luczystrap logs.
+        /// </summary>
+        public static string Menu_Luczystrap_ExportData_ExportLogs {
+            get {
+                return ResourceManager.GetString("Menu.Luczystrap.ExportData.ExportLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export diagnostic data.
+        /// </summary>
+        public static string Menu_Luczystrap_ExportData_Title {
+            get {
+                return ResourceManager.GetString("Menu.Luczystrap.ExportData.Title", resourceCulture);
             }
         }
         

@@ -846,6 +846,12 @@ Some text might not be translated to preferred language.</value>
   <data name="Menu.FastFlags.Presets.FullscreenTitlebar.Description" xml:space="preserve">
     <value>Stops it from showing whenever you move your mouse to the top of the screen.</value>
   </data>
+	<data name="Menu.FastFlags.Presets.RemoveGrass.Title" xml:space="preserve">
+    <value>Disable Grass</value>
+  </data>
+	<data name="Menu.FastFlags.Presets.RemoveGrass.Description" xml:space="preserve">
+    <value>Removes Roblox’s default grass textures. Note: this setting does not affect custom grass textures used by individual games.</value>
+  </data>
   <data name="Menu.FastFlags.Presets.TextureQuality.Title" xml:space="preserve">
     <value>Texture quality</value>
   </data>

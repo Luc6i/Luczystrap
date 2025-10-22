@@ -23,7 +23,7 @@ namespace Bloxstrap.UI.Elements.Settings.Pages
 
         private void SetupViewModel()
         {
-            _viewModel = new FastFlagsViewModel();
+            _viewModel = new FastFlagsViewModel(this);
 
             _viewModel.OpenFlagEditorEvent += OpenFlagEditor;
             _viewModel.RequestPageReloadEvent += (_, _) => SetupViewModel();

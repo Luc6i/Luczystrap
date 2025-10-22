@@ -15,10 +15,20 @@ namespace Bloxstrap.UI.ViewModels.Settings
     public class FastFlagsViewModel : NotifyPropertyChangedViewModel
     {
         private Dictionary<string, object>? _preResetFlags;
+        private Page? _page;
 
         public event EventHandler? RequestPageReloadEvent;
         
         public event EventHandler? OpenFlagEditorEvent;
+
+        public FastFlagsViewModel()
+        {
+        }
+
+        public FastFlagsViewModel(Page page)
+        {
+            _page = page;
+        }
 
         private void OpenFastFlagEditor() => OpenFlagEditorEvent?.Invoke(this, EventArgs.Empty);
 
@@ -131,6 +141,17 @@ namespace Bloxstrap.UI.ViewModels.Settings
             }
         }
 
+        public bool RemoveGrass
+        {
+            get => App.FastFlags?.GetPreset("Rendering.RemoveGrass1") == "0";
+            set
+            {
+                App.FastFlags.SetPreset("Rendering.RemoveGrass1", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.RemoveGrass2", value ? "0" : null);
+                App.FastFlags.SetPreset("Rendering.RemoveGrass3", value ? "0" : null);
+            }
+        }
+
         public int MeshQuality
         {
             get => int.TryParse(App.FastFlags.GetPreset("Geometry.MeshLOD.Static"), out var x) ? x : 0;
@@ -149,6 +170,79 @@ namespace Bloxstrap.UI.ViewModels.Settings
                 App.FastFlags.SetPreset("Geometry.MeshLOD.Static", clamped);
                 OnPropertyChanged(nameof(MeshQuality));
                 OnPropertyChanged(nameof(MeshQualityEnabled));
+            }
+        }
+
+        public IReadOnlyDictionary<MeshDistanceLevel, (string L0, string L12, string L23, string L34)> MeshDistanceLevels => FastFlagManager.MeshDistanceLevels;
+
+        public MeshDistanceLevel SelectedMeshDistanceLevel
+        {
+            get
+            {
+                string? l0 = App.FastFlags.GetPreset("Geometry.MeshDistance.L0");
+                string? l12 = App.FastFlags.GetPreset("Geometry.MeshDistance.L12");
+                string? l23 = App.FastFlags.GetPreset("Geometry.MeshDistance.L23");
+                string? l34 = App.FastFlags.GetPreset("Geometry.MeshDistance.L34");
+
+                // If any value is null, return Default
+                if (l0 == null || l12 == null || l23 == null || l34 == null)
+                    return MeshDistanceLevel.Default;
+
+                // Find matching level
+                foreach (var level in MeshDistanceLevels)
+                {
+                    if (level.Key == MeshDistanceLevel.Default)
+                        continue;
+
+                    if (level.Value.L0 == l0 && level.Value.L12 == l12 && 
+                        level.Value.L23 == l23 && level.Value.L34 == l34)
+                        return level.Key;
+                }
+
+                return MeshDistanceLevel.Default;
+            }
+            set
+            {
+                if (value == MeshDistanceLevel.Default)
+                {
+                    App.FastFlags.SetPreset("Geometry.MeshDistance.L0", null);
+                    App.FastFlags.SetPreset("Geometry.MeshDistance.L12", null);
+                    App.FastFlags.SetPreset("Geometry.MeshDistance.L23", null);
+                    App.FastFlags.SetPreset("Geometry.MeshDistance.L34", null);
+                }
+                else
+                {
+                    var distances = MeshDistanceLevels[value];
+                    App.FastFlags.SetPreset("Geometry.MeshDistance.L0", distances.L0);
+                    App.FastFlags.SetPreset("Geometry.MeshDistance.L12", distances.L12);
+                    App.FastFlags.SetPreset("Geometry.MeshDistance.L23", distances.L23);
+                    App.FastFlags.SetPreset("Geometry.MeshDistance.L34", distances.L34);
+                }
+
+                OnPropertyChanged(nameof(SelectedMeshDistanceLevel));
+            }
+        }
+
+        public IReadOnlyDictionary<LuciPreset, Dictionary<string, object>> LuciPresets => FastFlagManager.LuciPresets;
+
+        public ICommand ApplyLuciPresetCommand => new RelayCommand<LuciPreset>(ApplyLuciPreset);
+
+        private void ApplyLuciPreset(LuciPreset preset)
+        {
+            if (preset == LuciPreset.None)
+                return;
+
+            var presetFlags = LuciPresets[preset];
+
+            foreach (var flag in presetFlags)
+            {
+                App.FastFlags.SetValue(flag.Key, flag.Value);
+            }
+
+            // Navigate to the FastFlag editor
+            if (_page != null && Window.GetWindow(_page) is INavigationWindow window)
+            {
+                window.Navigate(typeof(FastFlagEditorPage));
             }
         }
 

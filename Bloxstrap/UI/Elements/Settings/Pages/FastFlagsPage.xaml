@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:models="clr-namespace:Bloxstrap.UI.ViewModels"
+      xmlns:viewmodels="clr-namespace:Bloxstrap.UI.ViewModels"
+      xmlns:presets="clr-namespace:Bloxstrap.Enums.FlagPresets"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:resources="clr-namespace:Bloxstrap.Resources"
       xmlns:controls="clr-namespace:Bloxstrap.UI.Elements.Controls"
@@ -147,5 +149,46 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
         </controls:OptionControl>
+
+        <controls:OptionControl 
+            Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RemoveGrass_Title}"
+            Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RemoveGrass_Description}">
+            <ui:ToggleSwitch IsChecked="{Binding RemoveGrass, Mode=TwoWay}" />
+        </controls:OptionControl>
+
+        <TextBlock Text="Luci's Allowlist Presets" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
+        
+        <ui:Card Margin="0,8,0,0" Padding="12">
+            <StackPanel>
+                <TextBlock FontSize="14" FontWeight="Medium" Text="Quick Apply Presets" Margin="0,0,0,8" />
+                <TextBlock FontSize="12" TextWrapping="Wrap" 
+                           Foreground="{DynamicResource TextFillColorTertiaryBrush}" 
+                           Margin="0,0,0,12"
+                           Text="Apply pre-configured FastFlag combinations optimized for different performance levels. These presets will overwrite existing FastFlags." />
+                
+                <UniformGrid Columns="3" HorizontalAlignment="Stretch">
+                    <ui:CardAction Margin="0,0,4,0" Icon="ChevronCircleDown20" Command="{Binding ApplyLuciPresetCommand}" CommandParameter="{x:Static presets:LuciPreset.Potato}">
+                        <StackPanel>
+                            <TextBlock FontSize="13" FontWeight="Medium" Text="Potato" />
+                            <TextBlock FontSize="11" Text="Minimum graphics for low-end PCs" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </ui:CardAction>
+                    
+                    <ui:CardAction Margin="2,0,2,0" Icon="Desktop20" Command="{Binding ApplyLuciPresetCommand}" CommandParameter="{x:Static presets:LuciPreset.Low}">
+                        <StackPanel>
+                            <TextBlock FontSize="13" FontWeight="Medium" Text="Low" />
+                            <TextBlock FontSize="11" Text="Balanced performance" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </ui:CardAction>
+                    
+                    <ui:CardAction Margin="4,0,0,0" Icon="ChevronCircleUp20" Command="{Binding ApplyLuciPresetCommand}" CommandParameter="{x:Static presets:LuciPreset.Ultra}">
+                        <StackPanel>
+                            <TextBlock FontSize="13" FontWeight="Medium" Text="Ultra" />
+                            <TextBlock FontSize="11" Text="Maximum quality for high-end PCs" Foreground="{DynamicResource TextFillColorTertiaryBrush}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </ui:CardAction>
+                </UniformGrid>
+            </StackPanel>
+        </ui:Card>
     </StackPanel>
 </ui:UiPage>

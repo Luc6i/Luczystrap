@@ -653,6 +653,7 @@ namespace Bloxstrap
                 }
             }
 
+
             string[] Names = { App.RobloxPlayerAppName, App.RobloxAnselAppName, App.RobloxStudioAppName };
             string ResolvedName = null!;
 
@@ -754,6 +755,21 @@ namespace Bloxstrap
                 {
                     using var process = Process.Start(startInfo)!;
                     _appPid = process.Id;
+                    
+                    // Apply high priority if enabled
+                    if (App.Settings.Prop.ForceHighPriority && _launchMode == LaunchMode.Player)
+                    {
+                        try
+                        {
+                            process.PriorityClass = ProcessPriorityClass.High;
+                            App.Logger.WriteLine("Bootstrapper::StartRoblox", "Set Roblox process priority to High");
+                        }
+                        catch (Exception ex)
+                        {
+                            App.Logger.WriteLine("Bootstrapper::StartRoblox", "Failed to set high priority");
+                            App.Logger.WriteException("Bootstrapper::StartRoblox", ex);
+                        }
+                    }
                 }
                 catch (Win32Exception ex) when (ex.NativeErrorCode == 1223)
                 {

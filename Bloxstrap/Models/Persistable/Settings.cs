@@ -44,5 +44,15 @@ namespace Bloxstrap.Models.Persistable
 
         // mod preset configuration
         public bool UseDisableAppPatch { get; set; } = false;
+
+        // Performance Tweaks
+        public bool ForceHighPriority { get; set; } = false;
+        public bool SetUltimatePerformance { get; set; } = false;
+
+        // System Tweaks
+        public bool DisableCoreParking { get; set; } = false;
+        public bool DisableGpuTelemetry { get; set; } = false;
+        public bool OptimizeNetworkTraffic { get; set; } = false;
+        public bool SetCloudflareDNS { get; set; } = false;
     }
 }

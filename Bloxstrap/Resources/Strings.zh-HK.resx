@@ -1482,6 +1482,9 @@ Bloxstrap 已安裝在 "{1}"。</value>
   <data name="Menu.GBSEditor.Transparency.Description" xml:space="preserve">
     <value />
   </data>
+  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
+    <value />
+  </data>
   <data name="Menu.Bloxstrap.Analytics.Title" xml:space="preserve">
     <value>啓用分析傳送</value>
   </data>
@@ -1501,8 +1504,5 @@ Bloxstrap 已安裝在 "{1}"。</value>
   <data name="Menu.Bloxstrap.ExportData.ExportLogs" xml:space="preserve">
     <value>所有 Bloxstrap 日誌</value>
     <comment>Label that appears next to a checkbox</comment>
-  </data>
-  <data name="Menu.GBSEditor.Graphics.Description" xml:space="preserve">
-    <value />
   </data>
 </root>
