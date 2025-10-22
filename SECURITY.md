@@ -4,7 +4,6 @@ Luczystrap prioritizes player safety and privacy. This policy outlines how to re
 If you discover a security issue, please report it responsibly:
 1. **Do not post publicly** (e.g., in Issues or Discord) to avoid exposing users.
 2. Contact us privately:
-   - Email: security@luczystrap.org
    - Discord: DM a maintainer on `discord.gg/C2rkCMkc9c`.
 3. Provide details:
    - Description of the vulnerability.
