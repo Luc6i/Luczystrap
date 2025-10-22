@@ -20,7 +20,7 @@ namespace Bloxstrap.UI.Elements.Dialogs
         {
             var dialog = new OpenFileDialog
             {
-                Filter = $"{Strings.FileTypes_JSONFiles}|*.json"
+                Filter = $"{Strings.FileTypes_JSONFiles}|*.json;*.txt|All Files|*.*"
             };
 
             if (dialog.ShowDialog() != true)
