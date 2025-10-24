@@ -31,7 +31,7 @@
             </ui:CardExpander.Header>
             <StackPanel>
                 <controls:OptionControl 
-                    Icon="Important24"
+                    Icon="ArrowUp24"
                     Header="Force Roblox high priority"
                     Description="Sets RobloxPlayerBeta.exe to high priority for better performance.">
                     <ui:ToggleSwitch IsChecked="{Binding ForceHighPriority, Mode=TwoWay}" />
@@ -60,14 +60,14 @@
             </ui:CardExpander.Header>
             <StackPanel>
                 <controls:OptionControl 
-                    Icon="Cpu24"
+                    Icon="Server24"
                     Header="Disable CPU core parking"
                     Description="Prevents Windows from parking CPU cores to improve responsiveness.">
                     <ui:ToggleSwitch IsChecked="{Binding DisableCoreParking, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
-                    Icon="ChartPerson24"
+                    Icon="ChartMultiple24"
                     Header="Disable GPU telemetry"
                     Description="Disables telemetry for NVIDIA and AMD graphics cards.">
                     <ui:ToggleSwitch IsChecked="{Binding DisableGpuTelemetry, Mode=TwoWay}" />

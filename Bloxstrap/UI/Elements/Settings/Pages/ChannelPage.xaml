@@ -44,7 +44,7 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
-    Icon="ArrowUpload24"
+    Icon="ArrowCircleUp24"
     Header="{x:Static resources:Strings.Menu_Channel_RobloxUpgrades}"
     Description="{x:Static resources:Strings.Menu_Channel_RobloxUpgrades_Description}">
             <controls:OptionControl.Style>
@@ -61,7 +61,7 @@
 
         <controls:OptionControl 
     x:Name="FlagStateOption"
-    Icon="CodeText24"
+    Icon="Code24"
     Header="{x:Static resources:Strings.Menu_Channel_VersionHash_Title}" 
     Description="{x:Static resources:Strings.Menu_Channel_VersionHash_Desription}"
     Visibility="Collapsed">
