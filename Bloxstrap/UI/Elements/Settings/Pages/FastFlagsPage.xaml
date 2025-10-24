@@ -27,12 +27,14 @@
         </ui:CardAction>
 
         <controls:OptionControl 
+            Icon="ToggleLeft24"
             Header="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Title}"
             Description="{x:Static resources:Strings.Menu_FastFlags_ManagerEnabled_Description}">
             <ui:ToggleSwitch IsChecked="{Binding UseFastFlagManager, Mode=TwoWay}" />
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="ArrowReset24"
             Header="{x:Static resources:Strings.Menu_FastFlags_Reset_Title}">
             <ui:ToggleSwitch IsChecked="{Binding ResetConfiguration, Mode=TwoWay}" />
         </controls:OptionControl>
@@ -76,6 +78,7 @@
 
         <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <controls:OptionControl 
+            Icon="Blur24"
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_MSAA_Title}">
                     <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding MSAALevels.Keys, Mode=OneTime}" Text="{Binding SelectedMSAALevel, Mode=TwoWay}">
                         <ComboBox.ItemTemplate>
@@ -87,6 +90,7 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl 
+            Icon="ScaleFit24"
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Title}" 
             Description="{x:Static resources:Strings.Menu_FastFlags_Presets_FixDisplayScaling_Description}" 
             HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/A-guide-to-FastFlags#dpi-scaling-fixes">
@@ -129,6 +133,7 @@
         </ui:CardExpander>
 
         <controls:OptionControl 
+            Icon="Desktop24"
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RenderingMode_Title}">
                     <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding RenderingModes.Keys, Mode=OneTime}" Text="{Binding SelectedRenderingMode, Mode=TwoWay}">
                         <ComboBox.ItemTemplate>
@@ -140,6 +145,7 @@
                 </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="ImageMultiple24"
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_TextureQuality_Title}">
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding TextureQualities.Keys, Mode=OneTime}" Text="{Binding SelectedTextureQuality, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
@@ -151,6 +157,7 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="LeafOne24"
             Header="{x:Static resources:Strings.Menu_FastFlags_Presets_RemoveGrass_Title}"
             Description="{x:Static resources:Strings.Menu_FastFlags_Presets_RemoveGrass_Description}">
             <ui:ToggleSwitch IsChecked="{Binding RemoveGrass, Mode=TwoWay}" />

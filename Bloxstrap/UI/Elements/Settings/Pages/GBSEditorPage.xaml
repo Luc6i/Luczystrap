@@ -15,6 +15,7 @@
         <TextBlock Margin="0,0,0,8" Text="{x:Static resources:Strings.Menu_GBSEditor_Description}" FontSize="14" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <controls:OptionControl 
+            Icon="LockClosed24"
             Header="{x:Static resources:Strings.Menu_GBSEditor_ReadOnly_Title}" 
             Description="{x:Static resources:Strings.Menu_GBSEditor_ReadOnly_Description}">
             <ui:ToggleSwitch Margin="5,0,0,0" Padding="10,5,10,5" IsChecked="{Binding ReadOnly}" />
@@ -24,7 +25,7 @@
 
         <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_Rendering}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
 
-                <controls:OptionControl Margin="0,8,0,0" Header="{x:Static resources:Strings.Menu_GBSEditor_GraphicsQuality_Title}" Description="{x:Static resources:Strings.Menu_GBSEditor_GraphicsQuality_Description}">
+                <controls:OptionControl Margin="0,8,0,0" Icon="VideoClip24" Header="{x:Static resources:Strings.Menu_GBSEditor_GraphicsQuality_Title}" Description="{x:Static resources:Strings.Menu_GBSEditor_GraphicsQuality_Description}">
                     <Grid Width="256">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -38,13 +39,14 @@
                 </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="Gauge24"
             Header="{x:Static resources:Strings.Menu_GPSEditor_FramerateCap_Title}" 
             Description="{x:Static resources:Strings.Menu_GPSEditor_FramerateCap_Description}">
             <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding FramerateCap, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
         </controls:OptionControl>
 
         <TextBlock Text="{x:Static resources:Strings.Menu_FastFlags_Presets_Categories_UserInterface}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
-        <controls:OptionControl Margin="0,8,0,0" Header="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Title}" Description="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Description}">
+        <controls:OptionControl Margin="0,8,0,0" Icon="Color24" Header="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Title}" Description="{x:Static resources:Strings.Menu_GBSEditor_UITransparency_Description}">
                     <Grid Width="256">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -58,12 +60,14 @@
                 </controls:OptionControl>
 
                 <controls:OptionControl 
+            Icon="SlideTransition24"
             Header="{x:Static resources:Strings.Menu_GBSEditor_ReducedMotion_Title}" 
             Description="{x:Static resources:Strings.Menu_GBSEditor_ReducedMotion_Description}">
                     <ui:ToggleSwitch Margin="5,0,0,0" Padding="10,5,10,5" IsChecked="{Binding ReducedMotion}" />
                 </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="TextFont24"
             Header="{x:Static resources:Strings.Menu_GBSEditor_FontSize_Title}" 
             Description="{x:Static resources:Strings.Menu_GBSEditor_FontSize_Description}">
             <ComboBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" ItemsSource="{Binding FontSizes.Keys, Mode=OneTime}" Text="{Binding SelectedFontSize, Mode=TwoWay}">
@@ -77,12 +81,14 @@
 
         <TextBlock Text="{x:Static resources:Strings.Common_Other}" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <controls:OptionControl 
+            Icon="CursorClick24"
             Header="{x:Static resources:Strings.Menu_GBSEditor_MouseSensitivity_Title}" 
             Description="{x:Static resources:Strings.Menu_GBSEditor_MouseSensitivity_Description}">
                     <ui:TextBox Margin="5,0,0,0" Padding="10,5,10,5" Width="200" Text="{Binding MouseSensitivity, Mode=TwoWay}" PreviewTextInput="ValidateUInt32" />
                 </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="Glasses24"
             Header="{x:Static resources:Strings.Menu_GBSEditor_VREnabled_Title}">
             <ui:ToggleSwitch Margin="5,0,0,0" Padding="10,5,10,5" IsChecked="{Binding VREnabled}" />
         </controls:OptionControl>

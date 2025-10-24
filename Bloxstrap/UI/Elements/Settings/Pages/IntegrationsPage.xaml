@@ -18,6 +18,7 @@
         <TextBlock Text="{x:Static resources:Strings.Menu_Integrations_ActivityTracking}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <controls:OptionControl 
+            Icon="Eye24"
             Header="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Title}" 
             Description="{x:Static resources:Strings.Menu_Integrations_EnableActivityTracking_Description}" 
             HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F"
@@ -26,6 +27,7 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="Location24"
             Header="{x:Static resources:Strings.Menu_Integrations_QueryServerLocation_Title}" 
             Description="{Binding Source={x:Static resources:Strings.Menu_Integrations_QueryServerLocation_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://ipinfo.io'}"
             HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#server-location-querying"
@@ -34,6 +36,7 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="Clock24"
             Header="{x:Static resources:Strings.Menu_Integrations_QueryServerUptime_Title}" 
             Description="{Binding Source={x:Static resources:Strings.Menu_Integrations_QueryServerUptime_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://www.rovalra.com'}"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}">
@@ -41,6 +44,7 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="Desktop24"
             Header="{x:Static resources:Strings.Menu_Integrations_DesktopApp_Title}" 
             Description="{Binding Source={x:Static resources:Strings.Menu_Integrations_DesktopApp_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#dont-exit-to-desktop-app'}"
             HelpLink="https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#dont-exit-to-desktop-app"
@@ -52,6 +56,7 @@
         <controls:MarkdownTextBlock MarkdownText="{Binding Source={x:Static resources:Strings.Menu_Integrations_RequiresActivityTracking}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/What-is-activity-tracking%3F#discord-rich-presence'}" TextWrapping="Wrap" Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
 
         <controls:OptionControl 
+            Icon="Games24"
             Header="{x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Title}" 
             Description="{Binding Source={x:Static resources:Strings.Menu_Integrations_ShowGameActivity_Description}, Converter={StaticResource StringFormatConverter}, ConverterParameter='https://github.com/bloxstraplabs/bloxstrap/wiki/Discord-Rich-Presence-does-not-work'}"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=ActivityTrackingOption, Mode=OneWay}"
@@ -60,6 +65,7 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="PersonAdd24"
             Header="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Title}" 
             Description="{x:Static resources:Strings.Menu_Integrations_AllowActivityJoining_Description}"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
@@ -67,6 +73,7 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+            Icon="Person24"
             Header="{x:Static resources:Strings.Menu_Integrations_ShowAccountOnProfile_Title}" 
             Description="{x:Static resources:Strings.Menu_Integrations_ShowAccountOnProfile_Description}"
             IsEnabled="{Binding InnerContent.IsChecked, ElementName=DiscordActivityOption, Mode=OneWay}">
@@ -76,6 +83,7 @@
         <TextBlock Text="{x:Static resources:Strings.Common_Miscellaneous}" FontSize="20" FontWeight="Medium" Margin="0,16,0,0" />
 
         <controls:OptionControl 
+            Icon="Window24"
             Header="{x:Static resources:Strings.Menu_Integrations_MultiInstanceLaunching_Title}" 
             Description="{x:Static resources:Strings.Menu_Integrations_MultiInstanceLaunching_Description}">
             <ui:ToggleSwitch IsChecked="{Binding MultiInstanceLaunchingEnabled, Mode=TwoWay}" />

@@ -209,12 +209,7 @@
                 CornerRadius="4"
                 Padding="12">
             <StackPanel>
-                <TextBlock Text="1. Open your web browser and log into Roblox" FontSize="13" Margin="0,0,0,8" />
-                <TextBlock Text="2. Press F12 to open Developer Tools" FontSize="13" Margin="0,0,0,8" />
-                <TextBlock Text="3. Go to the 'Application' or 'Storage' tab" FontSize="13" Margin="0,0,0,8" />
-                <TextBlock Text="4. Find 'Cookies' → 'https://www.roblox.com'" FontSize="13" Margin="0,0,0,8" />
-                <TextBlock Text="5. Copy the value of '.ROBLOSECURITY' cookie" FontSize="13" Margin="0,0,0,8" />
-                <TextBlock Text="6. Click 'Add Account' and paste the cookie value" FontSize="13" Margin="0,0,0,8" />
+                
 
                 <ui:Hyperlink Content="View detailed guide with screenshots" 
                               Margin="0,8,0,0"

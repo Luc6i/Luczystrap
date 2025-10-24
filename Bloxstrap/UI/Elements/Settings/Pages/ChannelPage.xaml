@@ -19,6 +19,7 @@
 
         <TextBlock Text="Luczystrap" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
         <controls:OptionControl 
+            Icon="ArrowDownload24"
             Header="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_AutoUpdate_Description}">
             <ui:ToggleSwitch IsChecked="{Binding UpdateCheckingEnabled, Mode=TwoWay}" />
@@ -27,6 +28,7 @@
         <TextBlock Text="Roblox" FontSize="16" FontWeight="Medium" Margin="0,16,0,0" />
 
         <controls:OptionControl 
+            Icon="ArrowSync24"
             Header="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Title}"
             Description="{x:Static resources:Strings.Menu_Behaviour_ForceRobloxReinstall_Description}">
             <controls:OptionControl.Style>
@@ -42,6 +44,7 @@
         </controls:OptionControl>
 
         <controls:OptionControl 
+    Icon="ArrowUpload24"
     Header="{x:Static resources:Strings.Menu_Channel_RobloxUpgrades}"
     Description="{x:Static resources:Strings.Menu_Channel_RobloxUpgrades_Description}">
             <controls:OptionControl.Style>
@@ -58,6 +61,7 @@
 
         <controls:OptionControl 
     x:Name="FlagStateOption"
+    Icon="CodeText24"
     Header="{x:Static resources:Strings.Menu_Channel_VersionHash_Title}" 
     Description="{x:Static resources:Strings.Menu_Channel_VersionHash_Desription}"
     Visibility="Collapsed">

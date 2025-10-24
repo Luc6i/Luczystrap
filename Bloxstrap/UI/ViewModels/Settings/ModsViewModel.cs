@@ -27,9 +27,11 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         private void ManageCustomFont()
         {
-            if (!String.IsNullOrEmpty(TextFontTask.NewState))
+            if (!String.IsNullOrEmpty(TextFontTask.CustomFontPath))
             {
-                TextFontTask.NewState = "";
+                // Clear custom font
+                TextFontTask.CustomFontPath = "";
+                TextFontTask.NewState = Enums.FontType.Default;
             }
             else
             {
@@ -50,7 +52,8 @@ namespace Bloxstrap.UI.ViewModels.Settings
                     return;
                 }
 
-                TextFontTask.NewState = dialog.FileName;
+                TextFontTask.CustomFontPath = dialog.FileName;
+                TextFontTask.NewState = Enums.FontType.Custom;
             }
 
             OnPropertyChanged(nameof(ChooseCustomFontVisibility));
@@ -59,9 +62,9 @@ namespace Bloxstrap.UI.ViewModels.Settings
 
         public ICommand OpenModsFolderCommand => new RelayCommand(OpenModsFolder);
 
-        public Visibility ChooseCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Collapsed : Visibility.Visible;
+        public Visibility ChooseCustomFontVisibility => String.IsNullOrEmpty(TextFontTask.CustomFontPath) ? Visibility.Visible : Visibility.Collapsed;
 
-        public Visibility DeleteCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.NewState) ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility DeleteCustomFontVisibility => !String.IsNullOrEmpty(TextFontTask.CustomFontPath) ? Visibility.Visible : Visibility.Collapsed;
 
         public ICommand ManageCustomFontCommand => new RelayCommand(ManageCustomFont);
 

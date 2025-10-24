@@ -31,12 +31,14 @@
             </ui:CardExpander.Header>
             <StackPanel>
                 <controls:OptionControl 
+                    Icon="Important24"
                     Header="Force Roblox high priority"
                     Description="Sets RobloxPlayerBeta.exe to high priority for better performance.">
                     <ui:ToggleSwitch IsChecked="{Binding ForceHighPriority, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
+                    Icon="Flash24"
                     Header="Enable Ultimate Performance power plan"
                     Description="Activates Windows Ultimate Performance power plan for maximum performance.">
                     <ui:ToggleSwitch IsChecked="{Binding SetUltimatePerformance, Mode=TwoWay}" />
@@ -58,24 +60,28 @@
             </ui:CardExpander.Header>
             <StackPanel>
                 <controls:OptionControl 
+                    Icon="Cpu24"
                     Header="Disable CPU core parking"
                     Description="Prevents Windows from parking CPU cores to improve responsiveness.">
                     <ui:ToggleSwitch IsChecked="{Binding DisableCoreParking, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
+                    Icon="ChartPerson24"
                     Header="Disable GPU telemetry"
                     Description="Disables telemetry for NVIDIA and AMD graphics cards.">
                     <ui:ToggleSwitch IsChecked="{Binding DisableGpuTelemetry, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
+                    Icon="Wifi124"
                     Header="Optimize network traffic"
                     Description="Configures QoS packet scheduler and disables network power management.">
                     <ui:ToggleSwitch IsChecked="{Binding OptimizeNetworkTraffic, Mode=TwoWay}" />
                 </controls:OptionControl>
 
                 <controls:OptionControl 
+                    Icon="Cloud24"
                     Header="Set Cloudflare DNS (1.1.1.1)"
                     Description="Changes DNS to Cloudflare for faster resolution and to bypass regional blocks.">
                     <ui:ToggleSwitch IsChecked="{Binding SetCloudflareDNS, Mode=TwoWay}" />

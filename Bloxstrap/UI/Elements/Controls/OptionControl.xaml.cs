@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Wpf.Ui.Common;
 
 namespace Bloxstrap.UI.Elements.Controls
 {
@@ -33,6 +34,9 @@ namespace Bloxstrap.UI.Elements.Controls
 
         public static readonly DependencyProperty InnerContentProperty =
             DependencyProperty.Register(nameof(InnerContent), typeof(object), typeof(OptionControl));
+
+        public static readonly DependencyProperty IconProperty =
+            DependencyProperty.Register(nameof(Icon), typeof(SymbolRegular), typeof(OptionControl), new PropertyMetadata(SymbolRegular.Empty));
 
         public string Header
         {
@@ -56,6 +60,12 @@ namespace Bloxstrap.UI.Elements.Controls
         {
             get { return GetValue(InnerContentProperty); }
             set { SetValue(InnerContentProperty, value); }
+        }
+
+        public SymbolRegular Icon
+        {
+            get { return (SymbolRegular)GetValue(IconProperty); }
+            set { SetValue(IconProperty, value); }
         }
 
         public OptionControl()
