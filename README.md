@@ -13,7 +13,7 @@
     <img alt="Downloads" src="https://img.shields.io/github/downloads/Luc6i/Luczystrap/total">
   </a>
   <a href="https://discord.gg/C2rkCMkc9c">
-    <img alt="Discord" src="https://img.shields.io/discord/0?logo=discord&label=discord">
+    <img alt="Discord" src="https://img.shields.io/discord/1429853228673007747?logo=discord&label=discord">
   </a>
   <a href="#license">
     <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
