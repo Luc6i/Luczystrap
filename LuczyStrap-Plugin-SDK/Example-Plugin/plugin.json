@@ -1,0 +1,18 @@
+{
+  "id": "example-plugin",
+  "name": "Example Plugin",
+  "description": "A simple test plugin that logs messages",
+  "author": "LuczyStrap Team",
+  "version": "1.0.0",
+  "type": "Utility",
+  "tags": ["example", "test"],
+  "iconUrl": "",
+  "downloadUrl": "",
+  "createdDate": "2025-01-28T00:00:00Z",
+  "lastUpdated": "2025-01-28T00:00:00Z",
+  "downloads": 0,
+  "rating": 0.0,
+  "dependencies": [],
+  "requiresRestart": false,
+  "isTrusted": true
+}
